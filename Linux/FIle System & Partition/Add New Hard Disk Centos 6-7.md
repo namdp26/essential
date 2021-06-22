@@ -57,10 +57,10 @@ sr0              11:0    1  4.4G  0 rom
 - Format ext4: `mkfs.ext4 /dev/vgBackup/lvBackup`
 - Format xfs: `mkfs.ext4 /dev/vgBackup/lvBackup`
 ### 2.8. Mount folder vào logical volume:
-Sửa file /etc/fstab và thêm dòng sau 
-với Format ext4: `/dev/vgBackup/lvBackup /backup ext4 defaults 0 0`
-với Format xfs: `/dev/vgBackup/lvBackup /backup xfs defaults 0 0`
-Tạo folder và mount:
+Sửa file /etc/fstab và thêm dòng sau:
+- Format ext4: `/dev/vgBackup/lvBackup /backup ext4 defaults 0 0`
+- với Format xfs: `/dev/vgBackup/lvBackup /backup xfs defaults 0 0`
+- Tạo folder và mount:
 `# mkdir /backup`
 `# mount /backup`
-Check lại hoạt động `#df -kh`
+- Check lại hoạt động `#df -kh`
