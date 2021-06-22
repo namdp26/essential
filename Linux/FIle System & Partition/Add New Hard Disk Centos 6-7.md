@@ -53,13 +53,13 @@ sr0              11:0    1  4.4G  0 rom
 - **n**: option tên của logical volume
 - **l**: extend volume
 - **100%FREE vgBackup**: Nhận toàn bộ free size từ Volume Group.
-### 2.7. Xây dựng filesystem cho logical volume mới:
-- ext4: `mkfs.ext4 /dev/vgBackup/lvBackup`
-- xfs: `mkfs.ext4 /dev/vgBackup/lvBackup`
+### 2.7. Tạo filesystem cho logical volume mới:
+- Format ext4: `mkfs.ext4 /dev/vgBackup/lvBackup`
+- Format xfs: `mkfs.ext4 /dev/vgBackup/lvBackup`
 ### 2.8. Mount folder vào logical volume:
 Sửa file /etc/fstab và thêm dòng sau 
-với ext4: `/dev/vgBackup/lvBackup /backup ext4 defaults 0 0`
-với xfs: `/dev/vgBackup/lvBackup /backup xfs defaults 0 0`
+với Format ext4: `/dev/vgBackup/lvBackup /backup ext4 defaults 0 0`
+với Format xfs: `/dev/vgBackup/lvBackup /backup xfs defaults 0 0`
 Tạo folder và mount:
 `# mkdir /backup`
 `# mount /backup`
