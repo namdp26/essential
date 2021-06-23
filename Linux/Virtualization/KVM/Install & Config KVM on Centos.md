@@ -7,9 +7,9 @@ KVM (kernel-base Virtual Machine) là một phần mềm ảo hóa cho các hệ
 ## 2. Cài đặt KVM trên CentOS 7
 ### 2.1. Kiểm tra xem CPU Có hỗ trợ ảo hóa không?
 - Chạy lệnh sau kiểm tra xem CPU có hỗ trợ ảo hóa không
-    `[root@thk_02 ~]# lscpu | grep Virtualization`
-    `Virtualization: VT-x`
-    `Virtualization type: full`
+    `[root@thk_02 ~]# lscpu | grep Virtualization`  
+    `Virtualization: VT-x`  
+    `Virtualization type: full`  
 - Nếu kết quả lệnh này trả về không có gì thì không hỗ trợ
     `[root@thk_02 ~]# egrep -c "svm|vmx" /proc/cpuinfo`
     `4`
@@ -26,15 +26,15 @@ KVM (kernel-base Virtual Machine) là một phần mềm ảo hóa cho các hệ
     `# systemctl enable libvirtd`
     `# systemctl start libvirtd`
 - Kiểm tra các module được cài đặt.
-    `# lsmod | grep -i kvm`
-    `kvm_intel 188740 0`
-    `kvm 637515 1 kvm_intel`
-    `irqbypass 13503 1 kvm`
+    `# lsmod | grep -i kvm`  
+    `kvm_intel 188740 0`  
+    `kvm 637515 1 kvm_intel`  
+    `irqbypass 13503 1 kvm`  
 ### 2.4. Tạo switch bridge cho VM Connect
 - Tạo Switch Bridge có tên nambr
     `brctl addbr nambr`
 - Add interface vào Switch
     `sudo brctl addif nambr enp59s0`
 - Xóa IP Card Physical và xin cấp IP cho card nambr
-    `sudo brctl addif nambr enp59s0`
+    `sudo brctl addif nambr enp59s0`  
     `sudo dhclient nambr`
