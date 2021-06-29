@@ -38,7 +38,8 @@ VD: `tmux attach -t 0` vì chưa đặt tên cho session nên session sẽ đán
 ```
 # tmux kill-session -t name
 ```
-
+- Để sử dụng như Terminal mặc định của hệ thống 
+Nhấn giữ `shift`
 ### 4. Các command làm việc trong terminal của Tmux
 - **Ctrl+b c**  Tạo một cửa sổ mới
 - **Ctrl+b w**  Xem danh sách cửa sổ hiện tại
@@ -55,3 +56,5 @@ VD: `tmux attach -t 0` vì chưa đặt tên cho session nên session sẽ đán
 - **Ctrl+b x**   Xoá panel
 #### 6. Link tham khảo thêm
 http://man.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man1/tmux.1?query=tmux&sec=1
+https://tangledhelix.com/blog/2012/07/16/tmux-and-mouse-mode/
+https://www.rockyourcode.com/copy-and-paste-in-tmux/

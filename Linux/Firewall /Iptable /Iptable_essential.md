@@ -32,7 +32,8 @@ Chain cho phép lọc gói tin ở nhiều điểm.
 - **OUTPUT:** Rule áp dụng với các gói tin ra bên ngoài. Có trong tất các các tables.
 - **FORWARD:** Áp dụng cho gói tin đến nhưng được chuyển tiếp sang nơi khác. Có trong các tables là mangle và filter.
 - **POSTROUTING:** Rule này áp dụng cho gói khi đi ra Network Interface. Có trong các tables nat và mangle.
-    ![Biểu đồ luồng của gói qua chain](/tmp/.mount_Joplin3vNvUT/resources/app.asar/img/Untitled-Diagram.webp)
+
+![Biểu đồ luồng của gói qua chain](/tmp/.mount_Joplin3vNvUT/resources/app.asar/img/Untitled-Diagram.webp)
 
 #### 3.3 Target
 

@@ -13,7 +13,9 @@ Giao thức syslog sử dụng (RFC 514). Hoạt động ở tầng transport, t
 - Một syslog message có định dạng header và content	
 Syslog Format & Field:
 - Header: Phần header của syslog chứa một số trường: timestamp, hostname, application name, location & priority.
-VD : `Jun 24 15:35:13 dell sudo: pam_unix(sudo:auth): authentication failure; logname= uid=1000 euid=0 tty=/dev/pts/1 ruser=namdp rhost=  user=namdp`
+VD : 
+```Jun 24 15:35:13 dell sudo: pam_unix(sudo:auth): authentication failure; logname= uid=1000 euid=0 tty=/dev/pts/1 ruser=namdp rhost=  user=namdp
+```
 - Format của syslog có thể customize trên trong file cấu hình 
 
 ### 3. Logrotate
