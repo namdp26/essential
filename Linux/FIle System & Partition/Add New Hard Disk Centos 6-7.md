@@ -47,14 +47,14 @@ sdc               8:32   0   16G  0 disk
 sr0              11:0    1  4.4G  0 rom
 ```
 ### 2.5. Tạo Physical Volume:
-`# pvcreate /dev/sdc1`
+`# pvcreate /dev/sdc1`  
 `# pvs`: để hiển thị physical volume được tạo
 ### 2.6. Tạo Volume Group:
-`# vgcreate vgBackup /dev/sdc1`
+`# vgcreate vgBackup /dev/sdc1`  
 `# vgs`: để hiển thị physical volume được tạo
 - **vgBackup**: là tên Volume Group
 ### 2.6. Tạo Logical Volume từ Volume Group:
-`# lvcreate -n lvBackup -l +100%FREE vgBackup`
+`# lvcreate -n lvBackup -l +100%FREE vgBackup`  
 `# lvs`: hiển thị logical volumeB 
 - **lvBackup**: Tên của logical volume 
 - **n**: option tên của logical volume

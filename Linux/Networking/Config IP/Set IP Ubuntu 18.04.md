@@ -1,8 +1,8 @@
 Set IP Ubuntu 18.04
 
-### Cấu hình IP cho Ubuntu 18.04
+### Cấu hình IP cho Ubuntu 18.04 sử dụng Netplan
 
-#### 1\. Cấu hình Static IP
+#### 1\. Cấu hình Static IP 
 
 #### Sửa file cấu hình tại đường dẫn : `/etc/netplan/01-network-manager-all.yaml`
 
@@ -18,7 +18,7 @@ network:
         - 192.168.253.122/24
       gateway4: 192.168.253.254
       nameservers:
-        addresses: \[8.8.8.8, 8.8.4.4\]
+        addresses: [8.8.8.8, 8.8.4.4\]
 ```
 #### Apply config
 
@@ -40,3 +40,4 @@ network:
 #### Apply config
 
 `# sudo netplan apply`
+

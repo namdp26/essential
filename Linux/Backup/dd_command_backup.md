@@ -1,8 +1,9 @@
 Backup System 
 
 Lệnh dd dùng để đọc và ghi phục vụ cho backup các phân  vùng hoặc ổ cứng :
-Cú phap : 
-`# dd if="src" of="dest" option`
+Cú pháp : `# dd if="src" of="dest"` 
+
+Các option:
 - Backup toàn ổ cứng `# dd if = /dev/sda of = /dev/sdb`
 - Backup phân vùng  ra image`# dd if=/dev/hda1 of=~/partition.img`
 - Backup phân vùng ra phân vùng khác`# dd if=/dev/sda2 of=/dev/sdb2`

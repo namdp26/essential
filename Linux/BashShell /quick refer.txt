@@ -1,3 +1,4 @@
+```
 Command	Description	Example
 &		Run the previous command in the background	ls &
 &&		Logical AND	if [ "$foo" -ge "0" ] && [ "$foo" -le "9"]
@@ -29,3 +30,4 @@ $*		All of current command's parameters (not preserving whitespace and quoting)	
 -w		Is a writable file	if [ -w /bin/ls ]
 -x		Is an executable file	if [ -x /bin/ls ]
 ( ... )		Function definition	function myfunc() { echo hello }
+```

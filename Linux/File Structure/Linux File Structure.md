@@ -1,10 +1,10 @@
 Linux File Structure
 
-### 1. /  - root
+### 1. /
 Thư mục gốc của hệ thống tập tin
 - Mọi file đều bắt đầu tư thư mục này
 - Chỉ user roor có quyền ghi vào thư mục này
-- `/root` là thư mục home của user root, khác với `/`
+- `/root` là thư mục home của user root, khác với thư mục `/`
 ### 2. /bin
 Cung cấp các command binarires cho toàn bộ user: cat, ls, cp, mv, ping
 - Chứa các tệp thực thi nhị phân
@@ -27,7 +27,7 @@ Cung cấp các command binarires cho toàn bộ user: cat, ls, cp, mv, ping
 ### 9. /mnt -  temp cho việc mount filesystem
 ### 10. /opt - option cho các phần mềm khác, add on 
 ### 11. /sbin - Các file binary cần thiết cho hệ thống
-- Các lệnh chạy với admin hoặc mục đích bảo trì hệ thống: iptables, reboot, fdisk, ifconfig.
+- Các lệnh chạy với quyền administrator hoặc truy cập sâu vào hệ thống: iptables, reboot, fdisk, ifconfig.
 ### 12. /srv - cung cấp dữ liệu cho các dịch vụ khác
 ### 13. /tmp - các file tạm
 ### 14. /usr - chương trình của người dùng 

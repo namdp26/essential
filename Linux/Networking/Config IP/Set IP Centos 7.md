@@ -2,10 +2,12 @@ Set IP Centos 7
 
 ### Cấu hình  IP cho Centos 7
 #### 1. Cấu hình Static IP
-Vào thư mục lưu các file cấu hình cho các interface :
+ Folder lưu các file cấu hình cho các interface :
+
 `# cd /etc/sysconfig/network-scripts/`
 #### Tạo file cấu hình :
 `# touch ifcfg-ens35`
+- ens35 là tên NIC cần cấu hình IP
 #### Sửa file và thêm các thông tin: 
 ```
 HWADDR=00:0c:29:8f:10:88            # Địa chỉ MAC của card mạng
