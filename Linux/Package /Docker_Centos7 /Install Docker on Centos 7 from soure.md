@@ -20,20 +20,20 @@ http://mirror.centos.org/centos/7/os/x86_64/Packages/libsemanage-python-2.5-14.e
 ```
 # rpm -Uvh *.rpm --nodeps --force
 ```
-![Install Dependency Docker](../img/1.png)
+![Install Dependency Docker](./img/1.png)
 - Cài đặt docker  tại folder /opt/docker :
 ```
 # rpm -ivh docker-ce-17.12.0.ce-1.el7.centos.x86_64.rpm
 ```
-![Install Package Docker](../img/2.png)
+![Install Package Docker](./img/2.png)
 - Khởi động docker service và kiểm tra trạng thái:
 ```
 # systemctl start docker
 # systemctl status docker
 ```
-![Start Docker](../img/3.png)
+![Start Docker](./img/3.png)
 - Chạy thử container
 ```
 # docker run hello-world
 ```
-![Verify](../img/1.png)
+![Verify](./img/1.png)
