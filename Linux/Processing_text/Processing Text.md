@@ -55,8 +55,8 @@ Lệnh này giúp cắt, trích xuất nội dung của tệp theo cột
 VD: `cut -f 2,3 filename` cột thứ 2 và 3 sẽ được hiển thị
 ### 10. ln
 Lệnh này giúp tạo một symbolic copy của file ở bất kỳ nơi nào để có thể truy cập file một cách nhanh chóng.
-**Hard link**: là 2 tệp chia sẻ 1 inode 2 tệp có cùng 1 inode, tức là dù chúng xuấ hiện ở đâu thì 2 file vẫn có chung nội dung
-Chỉ link được tới file không link được thư mục
+**Hard link**: là 2 tệp chia sẻ 1 inode, tức là dù chúng xuấ hiện ở đâu thì 2 file vẫn có chung nội dung
+Chỉ sử dụng để link được tới file không link được thư mục
 Link với file sẽ vẫn tồn tài dù file được move qua nơi khác.
 - cú pháp : `# ln [file nguồn] [file đích]` lệnh này sẽ link thư mục dùng hard link
 - `ls -i` xem số inode của file

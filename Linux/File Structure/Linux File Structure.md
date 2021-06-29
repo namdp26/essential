@@ -18,14 +18,14 @@ Cung cấp các command binarires cho toàn bộ user: cat, ls, cp, mv, ping
 ### 5. /etc - file cấu hình 
 - Chứa file cấu hình cho tất cả các chương trình
 - Chứa script cho việc start/shutdown các chương trình.
-- VD /etc/resolv.conf 
+- VD /etc/resolv.conf, /etc/my.cnf 
 ### 6. /home - thư mục home của người dùng chứa các file cá nhân của người dùng
 ### 7. /lib - thư viện
 - Chứa các file cần thiết cho /bin/ và /sbin/
 ### 8. /media 
 - Các thiết bị gắn có thể được gỡ bỏ: CD-ROM, CD
 ### 9. /mnt -  temp cho việc mount filesystem
-### 10. /opt - option cho các phần mềm khác, add on
+### 10. /opt - option cho các phần mềm khác, add on 
 ### 11. /sbin - Các file binary cần thiết cho hệ thống
 - Các lệnh chạy với admin hoặc mục đích bảo trì hệ thống: iptables, reboot, fdisk, ifconfig.
 ### 12. /srv - cung cấp dữ liệu cho các dịch vụ khác
