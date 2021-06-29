@@ -8,7 +8,8 @@ VD: `$LANG` là biến lưu trữ giá trị của ngôn ngữ trên hệ thốn
 ### 3. Một số biến môi trường phổ biến:
 Truy cập biến môi trường: `# echo $VARIABLE`
 
-PATH : Biến này chỉ ra danh sách cảc thư mục thực thi file trên hệ thống được phần tách với nhau bằng dấu ":". Khi nhập một command từ bàn phím biến $PATH sẽ tìm và thực thi nếu nó tồn tại trên hệ thống.
+Một số biến môi trường cần thiết trên Linux
+- PATH : Biến này chỉ ra danh sách cảc thư mục thực thi file trên hệ thống được phần tách với nhau bằng dấu ":". Khi nhập một command từ bàn phím biến $PATH sẽ tìm và thực thi nếu nó tồn tại trên hệ thống.
 
 VD:
 ```
@@ -16,16 +17,39 @@ VD:
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
 ```
 
-USER: Thông tin username 
+- Biến USER: Thông tin username 
 
-VD: `# echo $USER`
-EDITOR: Đường dẫn tới trình soạn thảo file VD: vim, nano
-UID: User ID
-TERM: Default terminal emulator
-SHELL: shell hiện tại user đang sử dụng
+VD: 
+```
+namdp@dell:~$ echo $USER
+namdp
+namdp@dell:~$ 
+```
+- Biến UID: User ID
+VD:
+```
+namdp@dell:~$ echo $UID
+1000
+```
+- Biến TERM: Default terminal emulator
+VD:
+```
+namdp@dell:~$ echo $TERM
+xterm-256color
+```
+- SHELL: shell hiện tại user đang sử dụng
 
-VD: `echo $SHELL`
-
+VD: 
+```
+namdp@dell:~$ echo $SHELL
+/bin/bash
+```
+- Hiển thị toàn bộ biến môi trường có trên hệ thống
+```
+# env
+or
+# printenv | less
+```
 ### 4. Tạo mới một biến môi trường 
 `VARIABLE_NAME= variable_value`
 VD: 
@@ -37,9 +61,7 @@ VD:
 ### 6. Set giá trị cho biến 
 `export Variable=value`
 
-### 7. Hiển thị toàn bộ biến môi trường có trên hệ thống
-`# env`
-`# printenv | less`
+### 7. 
 ### 8. Biến Local & Global trong Shell Script	
 - Global: Là biên toàn cục có giá trị trong toàn bộ shell script.
 - Local: Biến cục bộ này chỉ có giá trị trong hàm khởi tạo.
