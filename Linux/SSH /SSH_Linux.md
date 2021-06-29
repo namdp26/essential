@@ -54,7 +54,7 @@ SSH Key sử dụng Passpharse sẽ luôn hỏi password passpharse khi tạo co
 1.  Enable ssh-agent
 
 ```
-namdp@dell:~/.ssh$ eval "$(ssh-agent -s)"
+namdp@dell:~$ eval "$(ssh-agent -s)"
 Agent pid 10038
 
 ```
@@ -62,7 +62,7 @@ Agent pid 10038
 2.  Add SSH key và ssh-agent
 
 ```
-namdp@dell:~/.ssh$ ssh-add ~/.ssh/id_rsa
+namdp@dell:~$ ssh-add ~/.ssh/id_rsa
 Enter passphrase for /home/namdp/.ssh/id_rsa: 
 Identity added: /home/namdp/.ssh/id_rsa (/home/namdp/.ssh/id_rsa)
 ```
