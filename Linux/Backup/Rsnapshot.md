@@ -1,8 +1,3 @@
-Search...
-
-Rsnapshot
-28/06/2021 17:37
-
 ## Rsnapshoot là gì?
 
 Đây là một tiện ích opensoure cho phép snapshot filesystem tại các thời điểm khác nhau có thể thực hiện trên local hoặc remote với các hệ thống Filesystem của Linux/Unix.
@@ -13,21 +8,26 @@ Sử dụng với SSH có thể thực hiện snapshoot với filesystem trên c
 
 RHEL/CentOS:
 
-- Cài đặt gói epel: `yum install epel-release`
-- Cài đặt rsnapshoot: `yum install rsnapshot`
+- Cài đặt gói epel: 
+```yum install epel-release```
+- Cài đặt rsnapshoot: 
+```yum install rsnapshot```
     ​
-    Debian/Ubuntu:
-- `apt-get install rsnapshot`
+Debian/Ubuntu:
+```
+apt-get update
+apt-get install rsnapshot
+```
     ​
-    Hoặc download từ source tại link:
+- Hoặc download và cài đặt binary từ source tại link:
     [https://ubuntu.pkgs.org/18.04/ubuntu-universe-amd64/rsnapshot\_1.4.2-1\_all.deb.html](https://ubuntu.pkgs.org/18.04/ubuntu-universe-amd64/rsnapshot_1.4.2-1_all.deb.html)
     ​
 
 ## 2\. Cấu hình
 
-File cấu hình mặc định: /etc/rsnapshot.conf
-File cấu hình mẫu: /etc/rsnapshot.conf.default
-Một số Option trong file config:
+File cấu hình mặc định: /etc/rsnapshot.conf  
+File cấu hình mẫu: /etc/rsnapshot.conf.default  
+Một số Option quan trọng trong file config:
 
 - **snapshot_root**: chỉ định thư mục lưu trữ toàn bộ backup
     VD:
@@ -39,7 +39,6 @@ Một số Option trong file config:
 - **cmd_du**: đường dẫn tới path của du program. rnapshot sẽ sử dụng "du" để tạo report về dung lượng ổ đĩa sử dụng
 - **exclude_file**: có thể loại trữ các file không muốn snapshot.
 - **interval**: set tham số tương ứng để gọi lệnh snapshot và số bản snapshot sẽ được giữ định kỳ.
-    VD:
 
 ```
 interval        hourly  6
@@ -49,7 +48,7 @@ interval        monthly 3
 ```
 
 - **ssh_arg**: thông số về port ssh nếu có thay đổi.
-- **backup**: lưu thông tin về nguồn (đường dẫn tuyệt đố) và đích (đường dãn tương đối tới thư mục bên trong folder snapshot_root).
+- **backup**: lưu thông tin về filesystem nguồn (đường dẫn tuyệt đố) và folder backup đích (đường dãn tương đối tới thư mục bên trong folder snapshot_root).
     VD:
     `backup /etc/ localhost/`
 - **backup_script**: Tham số về đường dẫn backup script muốn thực thi và đường dẫn local muốn lưu trữ.
