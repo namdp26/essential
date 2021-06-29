@@ -14,9 +14,11 @@ Mục đích sử dụng :
 Được tạo từ các phân vùng trên ổ đĩa cứng.
 #### 2.2. Volume Group 
 Là nhóm các Physical Volume từ 1 hoặc nhiều Disk khác nhau hợp lại.
+
 ![LVM Architechture](./img/Logical-Volume-Group.png)
 #### 2.3 Logical Volume
 Một Volume Group được chia nhỏ thành nhiều Logical Volume. Nó được dùng cho các để mount tới hệ thống tập tin (File System) và được format với những chuẩn định dạng khác nhau như ext2, ext3, ext4…
+
 ![LVM Architechture](./img/Logical-Volume.png)
 #### 2.4. File Systems
 Hệ thống tập tin quản lý các file và thư mục trên ổ đĩa, được mount tới các Logical Volume trong mô hình LVM
