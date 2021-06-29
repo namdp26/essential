@@ -6,52 +6,85 @@ Nhưng trong một số trường hợp cụ thể như khi sử dụng VPN, VXL
 ### 2\. Command add route trên Linux
 
 - **Show Routing Table**
-    Cú pháp:
-    `route -n`
-    `netstat -ln`
-    `ip route`
+    Các lệnh show:
+ ```
+# route -n
+# netstat -ln
+# ip route
+```
 
 Ví dụ : Client kết nối vào 1 VPN với network tunnel (192.168.29.0/24) sử dụng Virtual NIC vpn_01 (IP: 192.168.29.100/24), gateway (IP: 192.168.29.1/24), Client cần kết nối tới vùng mạng 192.168.254.0/24 qua VPN.
 
 - **Add static route using IP**
     Cú pháp:
-    `sudo ip route add {NETWORK/MASK} via {GATEWAYIP}`
-    VD:
-    `sudo ip route add 192.168.254.0/24 via 192.168.29.1`
+```
+sudo ip route add {NETWORK/MASK} via {GATEWAYIP}
+```
+    
+	VD:
+    
+```
+sudo ip route add 192.168.254.0/24 via 192.168.29.1
+```
 - **Add static route using IP & NIC**
     Cú pháp :
-    `sudo ip route add {NETWORK/MASK} via {GATEWAYIP} dev {network_card_name}`
+```
+sudo ip route add {NETWORK/MASK} via {GATEWAYIP} dev {network_card_name}
+```
+
     VD:
-    `sudo ip route add 192.168.254.0/24 via 192.168.29.1 dev vpn_01`
+```
+sudo ip route add 192.168.254.0/24 via 192.168.29.1 dev vpn_01
+```
 - **Delete route**
     Cú pháp :
-    `sudo ip route del <network_ip>/<cidr> via <gateway_ip> dev <network_card_name>`
+ ```
+ sudo ip route del <network_ip>/<cidr> via <gateway_ip> dev <network_card_name>
+ ```
     hoặc :
-    `sudo ip route del <network_ip>/<cidr> via <gateway_ip>`
+```
+sudo ip route del <network_ip>/<cidr> via <gateway_ip>
+```
 
-Lưu ý : Các lệnh làm việc với route đều cần quyền root
+**Lưu ý** : Các lệnh làm việc với route đều cần quyền root
 
-### 3\. Add route vĩnh viễn trên Linux
+### 3\. Add route dài hạn trên Linux
+Ở phần 2 đã hướng dẫn về các command add static route trên Linux, nhưng khi sử dụng bằng command các static route sẽ mất đi sau khi khởi động OS.
+Để lưu vĩnh viễn các cấu hình này cần cấu hình như sau
 
-#### 3.1. RHEL/CentOS
+#### 3.1. Trên RHEL/CentOS
 
 **Sửa file cấu hình**
 Trên RHEL hoặc CentOS cần tạo một file có tên tương ứng “route-namedevice” trong thư mục “/etc/sysconfig/network-scripts”
 VD:
-`sudo vi /etc/sysconfig/network-scripts/route-vpn_01`
+```
+sudo vi /etc/sysconfig/network-scripts/route-vpn_01
+```
+- vpn_01 : là tên NIC cần cấu hình Static Route
+
 Thêm dòng sau vào file route-vpn_01 :
-`192.168.254.0/24 via 192.168.29.1 dev vpn_01`
+```
+192.168.254.0/24 via 192.168.29.1 dev vpn_01
+```
 Restart network service:
-`systemctl restart network.service`
+```
+systemctl restart network.service
+```
 **Hoặc sử dụng nmcli:**
 Cú pháp :
-`sudo nmcli connection modify <interface_name> +ipv4.routes "<network_ip> <gateway_ip>"`
+```
+sudo nmcli connection modify <interface_name> +ipv4.routes "<network_ip> <gateway_ip>"
+```
 VD:
-`sudo nmcli connection modify vpn_01 +ipv4.routes "192.168.254.0/24 92.168.29.1 "`
+```
+sudo nmcli connection modify vpn_01 +ipv4.routes "192.168.254.0/24 92.168.29.1 "
+```
 Reload nmcli :
-`sudo nmcli connection reload`
+```
+sudo nmcli connection reload
+```
 
-#### 3.2. Debian/Ubuntu
+#### 3.2.  Debian/Ubuntu
 
 **Sửa file cấu hình `/etc/network/interfaces`**
 ***Thêm dòng sau:***
@@ -61,9 +94,13 @@ iface vpn_01 inet static
 address 192.168.29.100
 netmask 255.255.255.0
 ```
-`ip route add -net 192.168.254.0 netmask 255.255.0.0 gw 192.168.29.1`
+```
+ip route add -net 192.168.254.0 netmask 255.255.0.0 gw 192.168.29.1
+```
 ***Restart network service***
-`systemctl restart networking`
+```
+systemctl restart networking
+```
 
 **Sử dụng Netplan `/etc/netplan/<configuration_file>.yaml`**
 Thêm dòng sau:
@@ -79,4 +116,6 @@ Thêm dòng sau:
            metric: 100
 ``` 
 Apply config
-`sudo netplan apply`
+```
+sudo netplan apply
+```

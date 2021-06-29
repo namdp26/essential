@@ -69,10 +69,11 @@ Identity added: /home/namdp/.ssh/id_rsa (/home/namdp/.ssh/id_rsa)
 
 ### 3\. SSH Agent Forwarding
 
-Được sử dụng để SSH từ Server tới Server khác đã có khoá Public từ Client.
-VD: khi đã có SSH Key trên Server 01 và cần SSH tới Server 02 từ Server 01 mà vẫn dùng Key trên máy Client.
+Được sử dụng để SSH từ Server trung gian của Client, tới Server thứ 3 đã có khoá Public từ Client.
 
-Nghĩa rằng Private key trên Client sẽ được Forward qua Server 01.
+VD: Khi máy Client đã kết nối thành công tới Server 01 và Server 02 sử dụng SSH Key, có một tác vụ hoặc yêu cầu cần SSH từ Server 01 đến Server 02, SSH Agent Forwarding sẽ giúp điều này mà không cần tạo cặp Key mới trên Server 01
+
+Nghĩa rằng Private key trên Client sẽ được Forward qua Server 01 để xác thực khi Server 01 SSH tới Server 02.
 **Cấu hình trên máy Client**
 
 - Sửa file `~/.ssh/config` thêm dòng sau
@@ -83,5 +84,7 @@ Host 192.168.254.240 #IP Server Agent
 ```
 
 - Hoặc có thể chạy trực tiếp lệnh :
-    `ssh -A user@192.168.254.240`
-- Từ đây Server 01 có thể SSH tới Server 02 (với điều kiện Server 02 cần phải có Public Key từ Client).
+```
+ssh -A user@192.168.254.240
+```
+- Từ đây Server 01 có thể SSH tới Server 02 hoặc bất kỳ Server nào đã có Public Key từ máy Client.

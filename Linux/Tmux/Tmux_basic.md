@@ -1,23 +1,43 @@
 ### 1. Tmux là gì ?
-Tmux (Terminal Multiplexer) - bộ ghép kênh nó cho phép chuyển qua lại giữa các chương trình trên 1 terminal. hoac tắc program là một termianl riêng mà vẫn giữ hoạt động.... Hay nói đơn giản nó sẽ chia terminal thành nhiều màn hình khác nhau.
+Tmux là một Terminal Multiplexer - "bộ ghép kênh". Nó cho phép bạn chuyển qua lại giữa các chương trình độc lập ngay trên một terminal, tách các chương trình ra một terminal riêng mà vẫn giữ được trạng thái hoạt động của chúng. Và còn làm được nhiều tiện ích khác.
 ###  2. Cài đặt tmux
-`# apt install tmux` với Ubuntu 
-`# yum install tmux` với RHEL	
+Ubuntu:
+```
+# apt-get update 
+# apt-get install tmux
+``` 
+RHEL/Centos:
+```
+# yum update 
+# yum install tmux
+```	
 
 ### 3. Sử dụng tmux
 - Tạo session tmux mới :
-`# tmux new`
+```
+# tmux new
+```
 - List các session:
-`# tmux ls`
+```
+# tmux ls
+```
 - Tách session:
-`CTRL +B --> gõ D --> Enter`
+```
+CTRL +B --> gõ D --> Enter
+```
 - Quay lại session session:
-`tmux attach -t [session_name]`
+```
+tmux attach -t [session_name]
+```
 VD: `tmux attach -t 0` vì chưa đặt tên cho session nên session sẽ đánh số thứ tự từ 0
 - Tạo session với tên :
-`# tmux new -s name`
+```
+# tmux new -s name
+```
 - Xóa session :
-`# tmux kill-session -t name`
+```
+# tmux kill-session -t name
+```
 
 ### 4. Các command làm việc trong terminal của Tmux
 - **Ctrl+b c**  Tạo một cửa sổ mới

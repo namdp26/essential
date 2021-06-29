@@ -6,19 +6,23 @@ Install & Config KVM on Centos
 KVM (kernel-base Virtual Machine) là một phần mềm ảo hóa cho các hệ điều hành chạy nhân Linux, dành cho CPU hỗ trợ công nghệ ảo hóa Intel-VT/ AMD-V. KVM biến máy host/server trở thành một hypervisor.
 ## 2. Cài đặt KVM trên CentOS 7
 ### 2.1. Kiểm tra xem CPU Có hỗ trợ ảo hóa không?
-- Chạy lệnh sau kiểm tra xem CPU có hỗ trợ ảo hóa không
+- Chạy lệnh sau kiểm tra xem VT (Virtualization Technology) có được enable trên CPU không?
+- Kết quả trả về bên dưới tương ứng với CPU có hỗ trợ.
 ```
 [root@thk_02 ~]# lscpu | grep Virtualization 
 Virtualization: VT-x
 Virtualization type: full
 ```
+- Kiểm tra Hardware của Linux có hỗ trợ ảo hoá không
 - Nếu kết quả lệnh này trả về khác 0 thì cpu hỗ trợ
  ```
  [root@thk_02 ~]# egrep -c "svm|vmx" /proc/cpuinfo
  4
  ```
 ### 2.2. Tiến hành cài đặt KVM
-`# yum install qemu-kvm libvirt libvirt-python libguestfs-tools virt-install bridge-utils virt-manager`
+```
+# yum install qemu-kvm libvirt libvirt-python libguestfs-tools virt-install bridge-utils virt-manager
+```
 - qemu-kvm: Phần phụ trợ cho KVM
 - libvirt: cung cấp libvirt mà bạn cần quản lý qemu và KVM bằng libvirt.
 - bridge-utils: chứa một tiện ích cần thiết để tạo và quản lý các thiết bị bridge.
