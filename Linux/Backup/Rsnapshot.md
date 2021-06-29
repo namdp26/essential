@@ -6,20 +6,24 @@ Sử dụng với SSH có thể thực hiện snapshoot với filesystem trên c
 
 ### 1\. Cài đặt rnapshot
 
-RHEL/CentOS:
+Trên RHEL/CentOS:
 
 - Cài đặt gói epel: 
-```yum install epel-release```
+```
+yum install epel-release
+```
 - Cài đặt rsnapshoot: 
-```yum install rsnapshot```
-    ​
-Debian/Ubuntu:
+```
+yum install rsnapshot
+```
+
+Trên Debian/Ubuntu:
 ```
 apt-get update
 apt-get install rsnapshot
 ```
-    ​
-- Hoặc download và cài đặt binary từ source tại link:
+
+Hoặc download và cài đặt binary từ source tại link:
     [https://ubuntu.pkgs.org/18.04/ubuntu-universe-amd64/rsnapshot\_1.4.2-1\_all.deb.html](https://ubuntu.pkgs.org/18.04/ubuntu-universe-amd64/rsnapshot_1.4.2-1_all.deb.html)
     ​
 
