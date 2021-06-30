@@ -4,7 +4,8 @@ Linux Kernel có một package filtering framework là **netfilter**. Cho phép 
 
 ### 2\. Iptable (command) là gì?
 
-Iptables là giao diện dòng lệnh để tương tác với tính năng packet filtering của netfilter framework. Iptable được xây dựng dựa trên tính năng netfilter, cung cấp một firewall mạnh mẽ, với việc có thể thêm các rules lọc traffic vào ra trên hệ thống. Thêm vào fail2ban là một chương trình mạnh mẽ để block những attackers.
+Iptables là giao diện dòng lệnh để tương tác với tính năng packet filtering của netfilter framework. Iptable được xây dựng dựa trên tính năng netfilter, cung cấp một firewall mạnh mẽ, với việc có thể thêm các rules lọc traffic vào ra trên hệ thống. Thêm vào đó nó còn có tính năng mở rộng **fail2ban** là một chương trình mạnh mẽ để block những traffic attackers.
+
 Note: Iptable cung cấp 2 version khác sau với IPv4 và IPv6. Hai giao thức này có những sự khác biệt và được sử xử trong các kernel khác nhau. Do vậy command giữa IPv4 và IPv6 là khác nhau
 
 ### 3\. Iptable hoạt động thế nào?
@@ -40,7 +41,7 @@ Chain cho phép lọc gói tin ở nhiều điểm.
 Các target bao gồm :
 
 - **ACCEPT:** Cho phép gói tin đi qua
-- **DROP:** .
+- **DROP:** Loại bỏ gói tin
 - **REJECT:** Iptable sẽ từ chối gói tin, nó sẽ gửi các gói tin "connection rest" với TCP, “destination host unreachable” vớif UDP hoặc ICMP.
 
 ### 4\. Cấu hình &
