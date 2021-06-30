@@ -74,6 +74,7 @@ Identity added: /home/namdp/.ssh/id_rsa (/home/namdp/.ssh/id_rsa)
 VD: Khi máy Client đã kết nối thành công tới Server 01 và Server 02 sử dụng SSH Key, có một tác vụ hoặc yêu cầu cần SSH từ Server 01 đến Server 02, SSH Agent Forwarding sẽ giúp điều này mà không cần tạo cặp Key mới trên Server 01
 
 Nghĩa rằng Private key trên Client sẽ được Forward qua Server 01 để xác thực khi Server 01 SSH tới Server 02.
+
 **Cấu hình trên máy Client**
 
 - Sửa file `~/.ssh/config` thêm dòng sau

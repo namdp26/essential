@@ -13,21 +13,27 @@ Nhưng trong một số trường hợp cụ thể như khi sử dụng VPN, VXL
 # ip route
 ```
 
-Ví dụ : Client kết nối vào 1 VPN với network tunnel (192.168.29.0/24) sử dụng Virtual NIC vpn_01 (IP: 192.168.29.100/24), gateway (IP: 192.168.29.1/24), Client cần kết nối tới vùng mạng 192.168.254.0/24 qua VPN.
+Ví dụ : 
+- Client kết nối vào 1 VPN với network tunnel (192.168.29.0/24) 
+- Virtual NIC `vpn_01` (IP: 192.168.29.100/24)
+- gateway (IP: 192.168.29.1/24),
+- Client cần kết nối tới network 192.168.254.0/24 qua VPN.
 
 - **Add static route using IP**
-    Cú pháp:
+
+Cú pháp:
 ```
 sudo ip route add {NETWORK/MASK} via {GATEWAYIP}
 ```
     
-	VD:
+VD:
     
 ```
 sudo ip route add 192.168.254.0/24 via 192.168.29.1
 ```
 - **Add static route using IP & NIC**
-    Cú pháp :
+
+Cú pháp :
 ```
 sudo ip route add {NETWORK/MASK} via {GATEWAYIP} dev {network_card_name}
 ```
@@ -37,7 +43,8 @@ sudo ip route add {NETWORK/MASK} via {GATEWAYIP} dev {network_card_name}
 sudo ip route add 192.168.254.0/24 via 192.168.29.1 dev vpn_01
 ```
 - **Delete route**
-    Cú pháp :
+ 
+ Cú pháp :
  ```
  sudo ip route del <network_ip>/<cidr> via <gateway_ip> dev <network_card_name>
  ```
@@ -71,6 +78,7 @@ Restart network service:
 systemctl restart network.service
 ```
 **Hoặc sử dụng nmcli:**
+
 Cú pháp :
 ```
 sudo nmcli connection modify <interface_name> +ipv4.routes "<network_ip> <gateway_ip>"

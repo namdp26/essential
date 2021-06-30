@@ -183,7 +183,7 @@ iptables -A INPUT -p tcp -m multiport --dports 22,23 -s 59.45.175.0/24 -j DROP
 
 - `multiport`: module cho phép nhiều port trên 1 rule.
 
-#### 4.5. Các tr
+#### 4.5. Các state của gói tin
 
 - **NEW**: Trạng thái của gói đầu tiên của một kết nối.
 - **ESTABLISHED**: Trạng thái được sử dụng cho các gói đã được kết nối và nhận được phản hồi từ host.

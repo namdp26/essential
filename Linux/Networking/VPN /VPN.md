@@ -42,6 +42,8 @@ Là một giao thức mới, SoftEther không được hỗ trợ nhiều như m
 - **VPN Client to Site**
 VPN loại này giúp Client có thể kết nối đến 1 Private Network từ xa thông qua 1 VPN Server. Người dùng cần có phần mềm VPN Client tương ứng với VPN Server để có thể xác thực và tạo kết nối.
 VPN client to site thường được sử dụng cho các mục đích: Truy cập vào vùng mạng LAN (Internal) trong Datacenter, tạo ra kết nối an toàn.
-Các ứng dụng phổ biến hiện nay là : OpenVPN, SoftetherVPN. 
+ 
 - **VPN Site to Site**
 Là một dạng VPN kết nối 2 hay nhiều mạng riêng với nhau thông qua đường truyền an toàn và bảo mật. Giúp các chi nhánh khác nhau trong doanh nghiệp truy cập đến ứng dụng hoặc tài nguyên nội bộ an toàn và bảo mật cao hơn.
+
+Các ứng dụng VPN opensource phổ biến hiện nay là : OpenVPN, SoftetherVPN.
