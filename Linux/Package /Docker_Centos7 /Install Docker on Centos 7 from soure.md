@@ -36,4 +36,4 @@ http://mirror.centos.org/centos/7/os/x86_64/Packages/libsemanage-python-2.5-14.e
 ```
 # docker run hello-world
 ```
-![Verify](./img/1.png)
+![Verify](./img/4.png)
