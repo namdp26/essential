@@ -54,7 +54,7 @@ SSH Key sử dụng Passpharse sẽ luôn hỏi password passpharse khi tạo co
 1.  Enable ssh-agent
 
 ```
-namdp@dell:~$ eval "$(ssh-agent -s)"
+namdp@dell:~/.ssh$ eval "$(ssh-agent -s)"
 Agent pid 10038
 
 ```
@@ -62,19 +62,17 @@ Agent pid 10038
 2.  Add SSH key và ssh-agent
 
 ```
-namdp@dell:~$ ssh-add ~/.ssh/id_rsa
+namdp@dell:~/.ssh$ ssh-add ~/.ssh/id_rsa
 Enter passphrase for /home/namdp/.ssh/id_rsa: 
 Identity added: /home/namdp/.ssh/id_rsa (/home/namdp/.ssh/id_rsa)
 ```
 
 ### 3\. SSH Agent Forwarding
 
-Được sử dụng để SSH từ Server trung gian của Client, tới Server thứ 3 đã có khoá Public từ Client.
+Được sử dụng để SSH từ Server tới Server khác đã có khoá Public từ Client.
+VD: khi đã có SSH Key trên Server 01 và cần SSH tới Server 02 từ Server 01 mà vẫn dùng Key trên máy Client.
 
-VD: Khi máy Client đã kết nối thành công tới Server 01 và Server 02 sử dụng SSH Key, có một tác vụ hoặc yêu cầu cần SSH từ Server 01 đến Server 02, SSH Agent Forwarding sẽ giúp điều này mà không cần tạo cặp Key mới trên Server 01
-
-Nghĩa rằng Private key trên Client sẽ được Forward qua Server 01 để xác thực khi Server 01 SSH tới Server 02.
-
+Nghĩa rằng Private key trên Client sẽ được Forward qua Server 01.
 **Cấu hình trên máy Client**
 
 - Sửa file `~/.ssh/config` thêm dòng sau
@@ -85,7 +83,21 @@ Host 192.168.254.240 #IP Server Agent
 ```
 
 - Hoặc có thể chạy trực tiếp lệnh :
+    `ssh -A user@192.168.254.240`
+- Từ đây Server 01 có thể SSH tới Server 02 (với điều kiện Server 02 cần phải có Public Key từ Client).
+
+### 4. SCP 
+Sử dụng secure copy để truyền file trong network được mã hoá
+VD:
+- Copy file từ local tới máy remote
 ```
-ssh -A user@192.168.254.240
+scp myfile.tar.gz tony@10.0.4.243:/home/tony/
+``` 
+- Copy từ remote về folder hiện tại trên local sử dụng ký tự `.`
 ```
-- Từ đây Server 01 có thể SSH tới Server 02 hoặc bất kỳ Server nào đã có Public Key từ máy Client.
+scp tony@10.0.4.243:/home/tony/newfile.tar.gz .
+```
+- Copy tới máy remote sử dụng public key `id_rsa.pub`
+```
+scp id_rsa.pub tony@10.0.4.243:/home/tony
+```
