@@ -6,10 +6,12 @@ BIOS thực hiện một công việc gọi là POST ( Power-on Self-test) kiể
 BIOS được lưu trữ trên ROM của bo mạch chủ.
 Quá trình POST kết thúc thành công, BIOS sẽ tìm kiếm và khởi chạy một hệ điều hành được chứa trong các thiết bị lưu trữ như ổ cứng…
 Hệ điều hành Linux được cài trên ổ cứng thì BIOS sẽ tìm đến MBR (Master Boot Record)
+
 ![BIOS](./img/qua-trinh-boot-linux-giai-doan-BIOS.png)
 ### Stage 2: MBR (Master Boot Record)
 Sau khi BIOS xác định được thiết bị lưu trữ thì BIOS sẽ đọc trong MBR hoặc phân vùng EFI của thiết bị này để nạp vào bộ nhớ một chương trình. Chương trình này sẽ định vị và khởi động boot loader – đây là chương trình chịu trách nhiệm cho việc tìm và nạp Kernel cho OS.
 Đến giai đoạn này, máy tính sẽ không truy cập vào phương tiện lưu trữ nào. Thông tin về ngày tháng, thời gian và các thiết bị ngoại vi quan trọng nhất được nạp từ CMOS.
+
 ![MBR](./img/qua-trinh-boot-linux-giai-doan-Master-Boot-Record.png)
 ### Stage 3: GRUB (Grand Unified Bootloader)
 Linux có 2 boot loader phổ biến trên Linux là GRUB và ISOLINUX.
