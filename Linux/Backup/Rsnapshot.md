@@ -67,6 +67,8 @@ backup_script      /usr/local/bin/backup_pgsql.sh       localhost/postgres/
 `rsnapshot configtes`
 
 Nếu trạng thái trả về OK thì file config đã đúng.
+
+
 `rsnapshot hourly`
 
 Lệnh trên sẽ thực hiện snapshot thư mục /etc/ với đích là folder snapshot_root đã được cấu hình ở phần 2
