@@ -31,5 +31,7 @@ VD:
 
 ### 2. Owership & Group
 `chown user:group filename`: Thay đổi owner của 1 file hoặc folder
+
 `chgrp group_name filename`:  Chỉ thay đổi group của 1 file hoặc folder.
+
 - `-R` : đệ quy với trường hợp có nhiều subfolder bên trong.
