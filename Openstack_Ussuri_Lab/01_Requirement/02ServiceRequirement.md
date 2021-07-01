@@ -1,5 +1,6 @@
 ## 1. Install NTP Server
 NTP (Network Time Protocol) giúp đồng bộ thời gian các Node 
+
 **1.1. Cài đặt trên Controller Node**
 ```
 # apt install chrony
@@ -56,6 +57,7 @@ apt install python3-openstackclient
 ```
 ## 3. Install Database (MariaDB 10.3)
 Hầu hết các Service của Openstack đều sử dụng SQL Database để lưu thông tin. Database sẽ được cài đặt trên Controller Node. Việc sử dụng MariaDB hay MySQL tuỳ thuộc vào từng distro đang sử dụng
+
 **3.1.  Install software-properties-common**
 ```
 apt-get install software-properties-common
@@ -128,6 +130,7 @@ apt install memcached python-memcache
 ## 5. Install Etcd
 
 Các Service của openstack có thể sử dụng Etcd, để lưu trữ thông tin key locking, cấu hình, theo dõi hoạt động của các dịch vụ khác.
+
 **5.1. Install the etcd package**
 ```
 # apt install etcd
