@@ -25,7 +25,7 @@ Trên Compute Node :
 - 01 Port tap dùng để kết nối tới Virtual NIC trên Instance.
 
 ## Option 2: Self Service Network
-Mạng này cung cấp kết nối layer 3 (routing, NAT). Mạng ảo từ instace sẽ được định tuyến tới mạng vật lý qua giao thứ NAT. 
+Mạng này cung cấp kết nối layer 3 (routing, NAT). Các mạng ảo sẽ được định tuyến sử dụng một Virtual Router, kết nối tới mạng vật lý qua giao thứ NAT. 
 User có thể tạo môi trường mạng ảo theo ý muốn và mapping với mạng vật lý để instace kết nội được internet 
 Với mạng này để instace có thể được truy cập từ bên ngoài sẽ cần có Floating IP cho instace.
 Tương tự mạng này cũng cần DHCP server để cấp IP cho instance
