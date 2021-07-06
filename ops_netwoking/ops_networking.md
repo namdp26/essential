@@ -13,7 +13,7 @@ Mạng nãy cần có DHCP server để provider cấp network cho instance
 
 **Mô hình**
 
-![network1-connectivity.png](./img/network1-connectivity.png)
+![network1-connectivity.png](network1-connectivity.png)
 
 Trên Controller Node (Network Node):
 - 01 Bridge Provider được tạo kết nối tới Interface 2 (NIC vật lý) và port tap kết nối tới instance
@@ -41,7 +41,7 @@ Tương tự mạng này cũng cần DHCP server để cấp IP cho instance
 
 
 
-![network2-connectivity.png](./img/network2-connectivity.png)
+![network2-connectivity.png](network2-connectivity.png)
 
 
 
