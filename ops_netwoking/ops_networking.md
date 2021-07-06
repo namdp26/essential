@@ -12,6 +12,8 @@ Mạng nãy cần có DHCP server để provider cấp network cho instance
 1. neutron-linuxbridge-agent: Cấu hình kết nối layer2 và sercurity group.
 
 **Mô hình**
+
+
 ![provider](./img/network1-connectivity.png)
 
 Trên Controller Node (Network Node):
@@ -37,7 +39,9 @@ Tương tự mạng này cũng cần DHCP server để cấp IP cho instance
 1. neutron-linuxbridge-agent: Cấu hình kết nối layer2 và sercurity group.
 
 **Mô hình**
-![provider](./img/network2-connectivity.png)
+
+
+![self](./img/network2-connectivity.png)
 
 Trên Controller Node (Network Node):
 - 01 Bridge Self Service được tạo gồm 02 Interface ( 01 kết nối đến Virtual Router và 01 DHCP Server.
