@@ -51,10 +51,9 @@ service và nova compute service.
 
 
 Trên Controller Node (Network Node):
-- 01 Bridge Self Service được tạo gồm 02 Interface ( 01 kết nối đến Virtual Router và 01 DHCP Server.
+- 01 Bridge Self Service được tạo gồm 03 Interface ( 01 kết nối đến Virtual Router và 01 cho DHCP Server, 01 cho VXLAN Tunnel dùng chung với đường managerment tạo kết nối tới Compute Node.
 - 01 DHCP Network Namespace được kết nối toi Bridge của mạng Self Service phục vụ cho việc cấp IP cho Instance.
 - 01 Router Network Namespace tạo Virtual Router có 2 interface cho provider network và self service (Provider có thể coi là dường Wan, Self Service là đường Lan)
-- 01 Bridge sử dụng cho VXLAN Tunnel dùng chung với đường managerment tạo kết nối tới Compute Node.
 
 Trên Compute Node : 
 - 01 Bridge Self Service gồm 01 interface Tap kết nối tới instance, 01 interface VXLAN Tunnel dùng chung với đường managerment tạo kết nối tới Network Node.
