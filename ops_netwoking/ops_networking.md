@@ -58,4 +58,3 @@ Trên Controller Node (Network Node):
 
 Trên Compute Node : 
 - 01 Bridge Self Service gồm 01 interface Tap kết nối tới instance, 01 interface VXLAN Tunnel dùng chung với đường managerment tạo kết nối tới Network Node.
-- 01 Bridge Provider được cấu hình để map interface 2 (NIC Vật lý),
