@@ -92,7 +92,7 @@ Host 192.168.254.240 #IP Web Server
 
 - Hoặc có thể chạy trực tiếp lệnh :
     `ssh -A user@192.168.254.240`
-- Từ đây Web Server có thể SSH tới cDatabase Server (với điều kiện Database Server cần phải có Public Key của Client).
+- Từ đây Web Server có thể SSH tới các Database Server (với điều kiện trên Database Server cần phải có Public Key kh Client).
 
 ### 4. SCP 
 Sử dụng secure copy để truyền file trong network được mã hoá
