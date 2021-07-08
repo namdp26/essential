@@ -71,7 +71,7 @@ Identity added: /home/namdp/.ssh/id_rsa (/home/namdp/.ssh/id_rsa)
 
 Được sử dụng để forward key SSH thông qua 1 server trung gian (SSH Agent Server)
    
-VD: Web Server có thể truy cập từ Internet, Database Server - Miền Internal chỉ có IP Private thông tới Web Server .
+**VD:** Web Server có thể truy cập từ Internet, Database Server - Miền Internal chỉ có IP Private thông tới Web Server .
 
 Client lúc này cần SSH tới Database Server , nhưng Client không có connect tới Database Server. Lúc này cần Web Server đứng ra làm trung gian cho việc kết nối SSH.
 
