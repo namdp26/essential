@@ -77,7 +77,7 @@ Client lúc này cần SSH tới Database Server , nhưng giả sử Client khô
 
 Nhưng vì Web Server nằm ở vùng mạng public nên việc lưu private key dùng cho việc authenticate SSH Key tới Database Server là không an toàn.
 
-Do đó private key dùng SSH tới Database cân được lưu ở phía Client.
+Do đó các private key dùng SSH tới các Database Server c được lưu ở phía Client.
 
 Khi có request SSH từ Web Server tới. Database Server sẽ hỏi khóa private cho việc xác thực, lúc này cần SSH Forward ra tay để chuyển yêu cầu và gửi Private Key từ phía Client để xác thực
 
