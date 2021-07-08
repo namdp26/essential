@@ -70,10 +70,15 @@ Identity added: /home/namdp/.ssh/id_rsa (/home/namdp/.ssh/id_rsa)
 ### 3\. SSH Agent Forwarding
 
 Được sử dụng để forward key SSH thông qua 1 server trung gian (SSH Agent Server)
-    VD: Web Server có thể truy cập từ Internet, Database Server - Miền Internal chỉ có IP Private thông tới Web Server .
+   
+VD: Web Server có thể truy cập từ Internet, Database Server - Miền Internal chỉ có IP Private thông tới Web Server .
+
 Client lúc này cần SSH tới Database Server , nhưng Client không có connect tới Database Server. Lúc này cần Web Server đứng ra làm trung gian cho việc kết nối SSH.
+
 Nhưng vì Web Server nằm ở vùng mạng public nên việc lưu private key dùng cho việc authenticate SSH Key tới Database Server là không an toàn.
+
 Do đó private key dùng SSH tới Database cân được lưu ở phía Client.
+
 Khi có request SSH từ Web Server tới. Database Server sẽ hỏi khóa private cho việc xác thực, lúc này cần SSH Forward ra tay để chuyển yêu cầu và gửi Private Key từ phía Client để xác thực
 
 **Cấu hình trên máy Client**
