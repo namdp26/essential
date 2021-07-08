@@ -73,7 +73,7 @@ Identity added: /home/namdp/.ssh/id_rsa (/home/namdp/.ssh/id_rsa)
    
 **VD:** Có 01 Web Server có thể truy cập từ Internet  v Database Server - Miền Internal chỉ có IP Private thông tới Web Server .
 
-Client lúc này cần SSH tới Database Server , nhưng Client không có connect tới Database Server. Lúc này cần Web Server đứng ra làm trung gian cho việc kết nối SSH.
+Client lúc này cần SSH tới Database Server , nhưng giả sử Client không có connect tới vừng mạng Internal của Database Server. Lúc này cần Web Server đứng ra làm trung gian cho việc kết nối SSH.
 
 Nhưng vì Web Server nằm ở vùng mạng public nên việc lưu private key dùng cho việc authenticate SSH Key tới Database Server là không an toàn.
 
