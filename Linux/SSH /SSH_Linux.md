@@ -79,7 +79,7 @@ Nhưng vì Web Server nằm ở vùng mạng public nên việc lưu private key
 
 Do đó các private key dùng SSH tới các Database Server c được lưu ở phía Client.
 
-Khi có request SSH từ Web Server tới. Database Server sẽ hỏi khóa private cho việc xác thực, lúc này cần SSH Forward ra tay để chuyển yêu cầu và gửi Private Key từ phía Client để xác thực
+Khi có request SSH từ Web Server tới những Database Server này sẽ hỏi khóa private cho việc xác thực, lúc này cần SSH Forward ra tay để chuyển yêu cầu và gửi Private Key từ phía Client lên để xác thực v
 
 **Cấu hình trên máy Client**
 
