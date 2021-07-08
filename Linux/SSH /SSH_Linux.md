@@ -69,22 +69,25 @@ Identity added: /home/namdp/.ssh/id_rsa (/home/namdp/.ssh/id_rsa)
 
 ### 3\. SSH Agent Forwarding
 
-Được sử dụng để SSH từ Server tới Server khác đã có khoá Public từ Client.
-VD: khi đã có SSH Key trên Server 01 và cần SSH tới Server 02 từ Server 01 mà vẫn dùng Key trên máy Client.
+Được sử dụng để forward key SSH thông qua 1 server trung gian (SSH Agent Server)
+    VD: Web Server có thể truy cập từ Internet, Database Server - Miền Internal chỉ có IP Private thông tới Web Server .
+Client lúc này cần SSH tới Database Server , nhưng Client không có connect tới Database Server. Lúc này cần Web Server đứng ra làm trung gian cho việc kết nối SSH.
+Nhưng vì Web Server nằm ở vùng mạng public nên việc lưu private key dùng cho việc authenticate SSH Key tới Database Server là không an toàn.
+Do đó private key dùng SSH tới Database cân được lưu ở phía Client.
+Khi có request SSH từ Web Server tới. Database Server sẽ hỏi khóa private cho việc xác thực, lúc này cần SSH Forward ra tay để chuyển yêu cầu và gửi Private Key từ phía Client để xác thực
 
-Nghĩa rằng Private key trên Client sẽ được Forward qua Server 01.
 **Cấu hình trên máy Client**
 
 - Sửa file `~/.ssh/config` thêm dòng sau
 
 ```
-Host 192.168.254.240 #IP Server Agent
+Host 192.168.254.240 #IP Web Server
   ForwardAgent yes
 ```
 
 - Hoặc có thể chạy trực tiếp lệnh :
     `ssh -A user@192.168.254.240`
-- Từ đây Server 01 có thể SSH tới Server 02 (với điều kiện Server 02 cần phải có Public Key từ Client).
+- Từ đây Web Server có thể SSH tới Database Server (với điều kiện Database Server cần phải có Public Key của Client).
 
 ### 4. SCP 
 Sử dụng secure copy để truyền file trong network được mã hoá
