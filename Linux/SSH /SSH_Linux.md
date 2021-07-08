@@ -71,7 +71,7 @@ Identity added: /home/namdp/.ssh/id_rsa (/home/namdp/.ssh/id_rsa)
 
 Được sử dụng để forward key SSH thông qua 1 server trung gian (SSH Agent Server)
    
-**VD:** Có 01 Web Server có thể truy cập từ Internet  v Database Server - Miền Internal chỉ có IP Private thông tới Web Server .
+**VD:** Có 01 Web Server có thể truy cập từ Internet và 02 Database Server - Miền Internal chỉ có IP Private thông tới Web Server .
 
 Client lúc này cần SSH tới Database Server , nhưng giả sử Client không có connect tới vừng mạng Internal của Database Server. Lúc này cần Web Server đứng ra làm trung gian cho việc kết nối SSH.
 
@@ -92,7 +92,7 @@ Host 192.168.254.240 #IP Web Server
 
 - Hoặc có thể chạy trực tiếp lệnh :
     `ssh -A user@192.168.254.240`
-- Từ đây Web Server có thể SSH tới Database Server (với điều kiện Database Server cần phải có Public Key của Client).
+- Từ đây Web Server có thể SSH tới cDatabase Server (với điều kiện Database Server cần phải có Public Key của Client).
 
 ### 4. SCP 
 Sử dụng secure copy để truyền file trong network được mã hoá
