@@ -12,7 +12,7 @@ VD: Như trong Docker cần có có mạng Overlay dùng khi triển khai Docker
 	- VLAN sử dụng tà trên frame layer 2 cho việc đóng gói nên hỗ trợ khoảng 4095 	VLANs.
 	- VXLAN đóng gói MAC trong UDP hỗ trợ nhiều Vxlan segment hơn lên tới 16 triệu.
 - VXLAN Tunnel End Point (VTEP) dùng để kết nối switch (hiện tại là virtual switch) đến mạng IP. VTEP nằm trong hypervisor chứa VMs. Chức năng của VTEP là đóng gói VM traffic trong IP header để gửi qua mạng IP.
-<img src="./vxlan-gre_1.png" />
+<img src="./img/vxlan-gre_1.png" />
 
 ## 1.2 VXLAN Packet Format
 - Ngoài IP header và VXLAN header, VTEP cũng chèn thêm UDP header. Trong ECMP, switch/router bao gồm UDP header để thực hiện chức năng băm. VTEP tính source port bằng cách thực hiện băm inner Ethernet frame của header. Destination UDP port là VXLAN port.
