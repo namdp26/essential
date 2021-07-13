@@ -264,15 +264,15 @@ PING 10.0.0.101 (10.0.0.101) 56(84) bytes of data.
 - GRE là giao thức tunneling point-to-point, trong đó inner frame được đóng gói GRE theo tài liệu RFC 2784 và RFC 2890. Trong đó trường Key (chiếm 4 octects tương đương 32 bits) trong GRE header sử dụng để mang Tenant Network Identifier (TNI - định danh mạng khách hàng) và được sử dụng để cô lập các logical segment khác nhau.
 - GRE đóng gói inner frame sử dụng IP protocol số 47 để truyền thông chứ không sử dụng TCP hay UDP
 ## 2.2.Cấu trúc gói tin và frame của GRE
-<img src="vxlan-gre_11.png" />
+<img src="./img/vxlan-gre_11.png" />
 - Gói tin GRE có thể thêm 24B hoặc  28B với header plus.
-<img src="vxlan-gre_12.png" />
+<img src="./img/vxlan-gre_12.png" />
 - Cấu trúc frame của GRE:
-<img src="vxlan-gre_13.png" />
+<img src="./img/vxlan-gre_13.png" />
 - GRE Header Format
 ## 2.3.LAB GRE 
 ### 2.3.1.Topology
-<img src="vxlan-gre_14.png" />
+<img src="./img/vxlan-gre_14.png" />
 ### 2.3.2.Cài đặt và cấu hình
 #### Host 01
 
