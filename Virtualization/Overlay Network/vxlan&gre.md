@@ -12,21 +12,21 @@ VD: Như trong Docker cần có có mạng Overlay dùng khi triển khai Docker
 	- VLAN sử dụng tà trên frame layer 2 cho việc đóng gói nên hỗ trợ khoảng 4095 	VLANs.
 	- VXLAN đóng gói MAC trong UDP hỗ trợ nhiều Vxlan segment hơn lên tới 16 triệu.
 - VXLAN Tunnel End Point (VTEP) dùng để kết nối switch (hiện tại là virtual switch) đến mạng IP. VTEP nằm trong hypervisor chứa VMs. Chức năng của VTEP là đóng gói VM traffic trong IP header để gửi qua mạng IP.
-<img src="img/2.png" />
+<img src="./img/2.png" />
 ## 1.2 VXLAN Packet Format
 - Ngoài IP header và VXLAN header, VTEP cũng chèn thêm UDP header. Trong ECMP, switch/router bao gồm UDP header để thực hiện chức năng băm. VTEP tính source port bằng cách thực hiện băm inner Ethernet frame của header. Destination UDP port là VXLAN port.
 - Outer IP header chứa địa chỉ Source IP của VTEP thực hiện việc encapsulation. Địa chỉ IP đích là địa chỉ IP remote VTEP hoặc địa chỉ IP Multicast group. VXLAN đôi khi còn được gọi là công nghệ MAC-in-IP-encapsulation.
 - VXLAN thêm 50 bytes. Để tránh phân mảnh và tái lắp ráp, tất cả các thiết bị mạng vật lý vẫn chuyển lưu lượng VXLAN phải chứa được gói tin này. Vì vậy, MTU cũng nên được điều chỉnh tương ứng.
-<img src="vxlan-gre_2.png" />
-<img src="vxlan-gre_3.png" />
-<img src="vxlan-gre_4.png" />
+<img src="./img/vxlan-gre_2.png" />
+<img src="./img/vxlan-gre_3.png" />
+<img src="./img/vxlan-gre_4.png" />
 ### 1.3.2.VXLAN Header
 - VXLAN header có 8 byte. Sau đây là cấu trúc cảu VXLAN header:
-<img src="vxlan-gre_5.png" />
+<img src="./img/vxlan-gre_5.png" />
 ## 1.4.LAB VXLAN với Open vSwitch
 
 ### 1.4.1.Topology
-<img src="vxlan-gre_6.png" />
+<img src="./img/vxlan-gre_6.png" />
 ### 1.4.2.Cài đặt và cấu hình
 #### Host 01
 
