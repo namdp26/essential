@@ -17,12 +17,13 @@
 		- [2.3.3.Kết quả](#2.3.3)
 
 
-
-# 1\. Giới thiệu mạng Overlay
+<a name="1"></a>
+# 1. Giới thiệu mạng Overlay
 - Overlay Network là công nghệ cho phép tạo các mạng ảo trên hạ tầng mạng vật lý bên dưới (underlay network) 
 - Cụ thể hơn, với overlay network, ta có thể tạo ra các mạng ảo L2 trên nền hạ tầng mạng L3 network. Đứng ở góc độ cloud computing, các mạng L2 này là mạng riêng biệt của khách hàng, với môi trường có số lượng endpoint lớn. 
 VD: Như trong Docker cần có có mạng Overlay dùng khi triển khai Docker Swarm Cluster để tạo kết nối cho các Container nằm trên các Host Docker Machine khác nhau.
 
+<a name="1.1"></a>
 ## 1.1. Giới thiệu VxLAN
 - VxLAN (**Virtual extensible Local Area Network**) là một công nghệ tiêu chuẩn đùng để triển khai mang Overlay. Nó được thiết kế để giải quyết các vấn đề liên quan đến việc triển khai scale network.
 - VxLAN mở rộng layer 3 segment rên layer3 network. VxLAN đóng gói layer2 Ethernet framé bên trong 1 VXLAN Packet bao gồm cả địa chỉ IP.
@@ -34,12 +35,13 @@ VD: Như trong Docker cần có có mạng Overlay dùng khi triển khai Docker
 - VXLAN Tunnel End Point (VTEP) dùng để kết nối switch (hiện tại là virtual switch) đến mạng IP. VTEP nằm trong hypervisor chứa VMs. Chức năng của VTEP là đóng gói VM traffic trong IP header để gửi qua mạng IP.
 <img src="./img/vxlan-gre_1.png" />
 
+<a name="1.2"></a>
 ## 1.2 VXLAN Packet Format
 - Ngoài IP header và VXLAN header, VTEP cũng chèn thêm UDP header. Trong ECMP, switch/router bao gồm UDP header để thực hiện chức năng băm. VTEP tính source port bằng cách thực hiện băm inner Ethernet frame của header. Destination UDP port là VXLAN port.
 - Outer IP header chứa địa chỉ Source IP của VTEP thực hiện việc encapsulation. Địa chỉ IP đích là địa chỉ IP remote VTEP hoặc địa chỉ IP Multicast group. VXLAN đôi khi còn được gọi là công nghệ MAC-in-IP-encapsulation.
 - VXLAN thêm 50 bytes. Để tránh phân mảnh và tái lắp ráp, tất cả các thiết bị mạng vật lý vẫn chuyển lưu lượng VXLAN phải chứa được gói tin này. Vì vậy, MTU cũng nên được điều chỉnh tương ứng.
 
-
+<a name="1.2.1"></a>
 ## 1.2.1.Cấu trúc gói tin VXLAN Encapsulation
 - Ngoài IP header và VXLAN header, VTEP cũng chèn thêm UDP header. Trong ECMP, switch/router bao gồm UDP header để thực hiện chức năng băm. VTEP tính source port bằng cách thực hiện băm inner Ethernet frame của header. Destination UDP port là VXLAN port.
 - Outer IP header chứa địa chỉ Source IP của VTEP thực hiện việc encapsulation. Địa chỉ IP đích là địa chỉ IP remote VTEP hoặc địa chỉ IP Multicast group. VXLAN đôi khi còn được gọi là công nghệ MAC-in-IP-encapsulation.
@@ -51,17 +53,21 @@ VD: Như trong Docker cần có có mạng Overlay dùng khi triển khai Docker
 
 <img src="./img/vxlan-gre_4.png" />
 
+<a name="1.2.2"></a>
 ### 1.2.2 VXLAN Header
 - VXLAN header có 8 byte. Sau đây là cấu trúc cảu VXLAN header:
 
 <img src="./img/vxlan-gre_5.png" />
 
+<a name="1.3"></a>
 ## 1.3.LAB VXLAN với Open vSwitch
 
+<a name="1.3.1"></a>
 ### 1.3.1.Topology
 
 <img src="./img/vxlan-gre_6.png" />
 
+<a name="1.3.2"></a>
 ### 1.3.2.Cài đặt và cấu hình
 #### Host 01
 
@@ -225,6 +231,8 @@ virt-install \
 --network=bridge=ovs1,model=virtio,virtualport_type=openvswitch \
 --disk path=/var/lib/libvirt/images/centos7.qcow2,size=10,bus=virtio,format=qcow2
 ```
+
+<a name="1.3.3"></a>
 ### 1.3.3. Kết quả
 **a, VM Host 01**
 ```
@@ -294,10 +302,12 @@ PING 10.0.0.101 (10.0.0.101) 56(84) bytes of data.
 64 bytes from 10.0.0.101: icmp_seq=4 ttl=64 time=2.19 ms
 64 bytes from 10.0.0.101: icmp_seq=5 ttl=64 time=2.46 ms
 ```
-
+<a name="2.1"></a>
 ## 2.1. Giới thiệu GRE
 - GRE là giao thức tunneling point-to-point, trong đó inner frame được đóng gói GRE theo tài liệu RFC 2784 và RFC 2890. Trong đó trường Key (chiếm 4 octects tương đương 32 bits) trong GRE header sử dụng để mang Tenant Network Identifier (TNI - định danh mạng khách hàng) và được sử dụng để cô lập các logical segment khác nhau.
 - GRE đóng gói inner frame sử dụng IP protocol số 47 để truyền thông chứ không sử dụng TCP hay UDP
+
+<a name="2.2"></a>
 ## 2.2.Cấu trúc gói tin và frame của GRE
 <img src="./img/vxlan-gre_11.png" />
 - Gói tin GRE có thể thêm 24B hoặc  28B với header plus.
@@ -306,13 +316,15 @@ PING 10.0.0.101 (10.0.0.101) 56(84) bytes of data.
 <img src="./img/vxlan-gre_13.png" />
 - GRE Header Format
 
-
+<a name="2.3"></a>
 ## 2.3.LAB GRE 
 
+<a name="2.3.1"></a>
 ### 2.3.1.Topology
 
 <img src="./img/vxlan-gre_14.png" />
 
+<a name="2.3.2"></a>
 ### 2.3.2.Cài đặt và cấu hình
 #### Host 01
 
@@ -439,7 +451,7 @@ virt-install \
 --network=bridge=ovs1,model=virtio,virtualport_type=openvswitch \
 --disk path=/var/lib/libvirt/images/centos7.qcow2,size=10,bus=virtio,format=qcow2
 ```
-
+<a name="2.3.2"></a>
 ### 2.3.2. Kết quả
 **a, VM Host 01**
 ```
