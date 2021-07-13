@@ -1,3 +1,23 @@
+# MỤC LỤC
+- [1.Giới thiệu mạng Overlay](#1)
+	- [1.1.Giới thiệu VxLAN](#1.1)
+	- [1.2.VXLAN Packet Format](#1.2)
+		- [1.2.1.Cấu trúc gói tin VXLAN Encapsulation](#1.2.1)
+		- [1.2.2 VXLAN Header](#1.2.2)
+	- [1.4.LAB VXLAN với Open vSwitch](#1.3)
+		- [1.4.1.Topology](#1.3.1)
+		- [1.4.2.Cài đặt và cấu hình](#1.3.2)
+		- [1.4.3.Kết quả](#1.3.3)
+- [2.Giao thức GRE](#2)
+	- [2.1.GIới thiệu](#2.1)
+	- [2.2.Cấu trúc gói tin và frame của GRE](#2.2)
+	- [2.3.LAB GRE](#2.3)
+		- [2.3.1.Topology](#2.3.1)
+		- [2.3.2.Cài đặt và cấu hình](#2.3.2)
+		- [2.3.3.Kết quả](#2.3.3)
+
+
+
 # 1\. Giới thiệu mạng Overlay
 - Overlay Network là công nghệ cho phép tạo các mạng ảo trên hạ tầng mạng vật lý bên dưới (underlay network) 
 - Cụ thể hơn, với overlay network, ta có thể tạo ra các mạng ảo L2 trên nền hạ tầng mạng L3 network. Đứng ở góc độ cloud computing, các mạng L2 này là mạng riêng biệt của khách hàng, với môi trường có số lượng endpoint lớn. 
@@ -18,22 +38,31 @@ VD: Như trong Docker cần có có mạng Overlay dùng khi triển khai Docker
 - Ngoài IP header và VXLAN header, VTEP cũng chèn thêm UDP header. Trong ECMP, switch/router bao gồm UDP header để thực hiện chức năng băm. VTEP tính source port bằng cách thực hiện băm inner Ethernet frame của header. Destination UDP port là VXLAN port.
 - Outer IP header chứa địa chỉ Source IP của VTEP thực hiện việc encapsulation. Địa chỉ IP đích là địa chỉ IP remote VTEP hoặc địa chỉ IP Multicast group. VXLAN đôi khi còn được gọi là công nghệ MAC-in-IP-encapsulation.
 - VXLAN thêm 50 bytes. Để tránh phân mảnh và tái lắp ráp, tất cả các thiết bị mạng vật lý vẫn chuyển lưu lượng VXLAN phải chứa được gói tin này. Vì vậy, MTU cũng nên được điều chỉnh tương ứng.
+
+
+## 1.2.1.Cấu trúc gói tin VXLAN Encapsulation
+- Ngoài IP header và VXLAN header, VTEP cũng chèn thêm UDP header. Trong ECMP, switch/router bao gồm UDP header để thực hiện chức năng băm. VTEP tính source port bằng cách thực hiện băm inner Ethernet frame của header. Destination UDP port là VXLAN port.
+- Outer IP header chứa địa chỉ Source IP của VTEP thực hiện việc encapsulation. Địa chỉ IP đích là địa chỉ IP remote VTEP hoặc địa chỉ IP Multicast group. VXLAN đôi khi còn được gọi là công nghệ MAC-in-IP-encapsulation.
+- VXLAN thêm 50 bytes. Để tránh phân mảnh và tái lắp ráp, tất cả các thiết bị mạng vật lý vẫn chuyển lưu lượng VXLAN phải chứa được gói tin này. Vì vậy, MTU cũng nên được điều chỉnh tương ứng.
+
 <img src="./img/vxlan-gre_2.png" />
+
 <img src="./img/vxlan-gre_3.png" />
+
 <img src="./img/vxlan-gre_4.png" />
 
-### 1.3.2.VXLAN Header
+### 1.2.2 VXLAN Header
 - VXLAN header có 8 byte. Sau đây là cấu trúc cảu VXLAN header:
 
 <img src="./img/vxlan-gre_5.png" />
 
-## 1.4.LAB VXLAN với Open vSwitch
+## 1.3.LAB VXLAN với Open vSwitch
 
-### 1.4.1.Topology
+### 1.3.1.Topology
 
 <img src="./img/vxlan-gre_6.png" />
 
-### 1.4.2.Cài đặt và cấu hình
+### 1.3.2.Cài đặt và cấu hình
 #### Host 01
 
 - Create 02 vSwitch ovs1 và ovs2
@@ -196,7 +225,7 @@ virt-install \
 --network=bridge=ovs1,model=virtio,virtualport_type=openvswitch \
 --disk path=/var/lib/libvirt/images/centos7.qcow2,size=10,bus=virtio,format=qcow2
 ```
-### 1.4.3. Kết quả
+### 1.3.3. Kết quả
 **a, VM Host 01**
 ```
 [root@localhost ~]# ip a                                                       
