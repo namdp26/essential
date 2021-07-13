@@ -276,8 +276,12 @@ PING 10.0.0.101 (10.0.0.101) 56(84) bytes of data.
 - Cấu trúc frame của GRE:
 <img src="./img/vxlan-gre_13.png" />
 - GRE Header Format
+
+
 ## 2.3.LAB GRE 
+
 ### 2.3.1.Topology
+
 <img src="./img/vxlan-gre_14.png" />
 
 ### 2.3.2.Cài đặt và cấu hình
