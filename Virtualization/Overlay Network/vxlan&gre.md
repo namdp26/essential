@@ -302,7 +302,7 @@ PING 10.0.0.101 (10.0.0.101) 56(84) bytes of data.
 64 bytes from 10.0.0.101: icmp_seq=4 ttl=64 time=2.19 ms
 64 bytes from 10.0.0.101: icmp_seq=5 ttl=64 time=2.46 ms
 ```
-<a name="2.1"></a>
+<a name="2"></a>
 ## 2.1. Giới thiệu GRE
 - GRE là giao thức tunneling point-to-point, trong đó inner frame được đóng gói GRE theo tài liệu RFC 2784 và RFC 2890. Trong đó trường Key (chiếm 4 octects tương đương 32 bits) trong GRE header sử dụng để mang Tenant Network Identifier (TNI - định danh mạng khách hàng) và được sử dụng để cô lập các logical segment khác nhau.
 - GRE đóng gói inner frame sử dụng IP protocol số 47 để truyền thông chứ không sử dụng TCP hay UDP
