@@ -274,6 +274,7 @@ PING 10.0.0.101 (10.0.0.101) 56(84) bytes of data.
 ## 2.3.LAB GRE 
 ### 2.3.1.Topology
 <img src="./img/vxlan-gre_14.png" />
+
 ### 2.3.2.Cài đặt và cấu hình
 #### Host 01
 
@@ -401,7 +402,7 @@ virt-install \
 --disk path=/var/lib/libvirt/images/centos7.qcow2,size=10,bus=virtio,format=qcow2
 ```
 
-### 2.3.3. Kết quả
+### 2.3.2. Kết quả
 **a, VM Host 01**
 ```
 [root@localhost ~]# ip a                                                       
