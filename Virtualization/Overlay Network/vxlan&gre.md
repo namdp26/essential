@@ -21,13 +21,18 @@ VD: Như trong Docker cần có có mạng Overlay dùng khi triển khai Docker
 <img src="./img/vxlan-gre_2.png" />
 <img src="./img/vxlan-gre_3.png" />
 <img src="./img/vxlan-gre_4.png" />
+
 ### 1.3.2.VXLAN Header
 - VXLAN header có 8 byte. Sau đây là cấu trúc cảu VXLAN header:
+
 <img src="./img/vxlan-gre_5.png" />
+
 ## 1.4.LAB VXLAN với Open vSwitch
 
 ### 1.4.1.Topology
+
 <img src="./img/vxlan-gre_6.png" />
+
 ### 1.4.2.Cài đặt và cấu hình
 #### Host 01
 
