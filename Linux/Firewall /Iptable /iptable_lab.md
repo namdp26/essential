@@ -431,7 +431,7 @@ root@backend_01:~#
 # 5.LAB5
 ## 5.1.Mô hình
 
-<img src="img/lab6.png" />
+<img src="img/lab9.png" />
 
 - Client1, Client2, WebServer và Firewall cài hệ điều hành Ubuntu Server 16.04.
 - Cấu hình iptables tại Firewall.
