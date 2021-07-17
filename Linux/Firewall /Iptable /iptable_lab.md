@@ -249,11 +249,11 @@ iptables -t nat -A POSTROUTING --out-interface ens38 -j MASQUERADE
 ## d, Test Kq
 - Truy cập vào http://172.16.69.11 
 
-<img src="img/sv01.png" />
+<img src="img/sv1.png" />
 
 - Truy cập vào https://172.16.69.11
 
-<img src="img/sv02.png" />
+<img src="img/sv2.png" />
 
 - Tren client
 ```
