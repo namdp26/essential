@@ -16,6 +16,8 @@ Repmgr là một tool opensource dùng dể quản lý replication và failovẻ
 
 ## 3.1. Mô hình
 
+<img src="img/lab.png" />
+
 PostgreSQL:
 PG-Master: 10.3.54.116
 PG-slave: 10.3.54.102
