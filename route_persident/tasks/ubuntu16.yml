@@ -1,0 +1,9 @@
+---
+- name: "Add route Ubuntu 16"
+  lineinfile:
+    path: /etc/network/interfaces
+    line: "         {{ item }}"
+    insertafter: "{{ interface_u16 }} && {{ netmask }}"
+  with_items:
+  - "{{ route_u16 }}"
+  
