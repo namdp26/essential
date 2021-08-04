@@ -1,0 +1,8 @@
+<--table Telnetall_3thrd starts-->
+3rd_party= result
+10.159.26.92 8443 = open
+10.159.26.92 9090 = open
+10.159.26.92 80 = open
+10.159.26.92 10000 = timeouted
+10.159.26.92 443 = closed
+<--table Telnetall_3thrd ends-->
