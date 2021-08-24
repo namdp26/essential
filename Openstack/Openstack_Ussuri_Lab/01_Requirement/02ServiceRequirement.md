@@ -7,7 +7,7 @@ NTP (Network Time Protocol) giúp đồng bộ thời gian các Node
 ```
 **Cấu hình**
 ```
-# vi /etc/chrony/chrony.conf**
+# vi /etc/chrony/chrony.conf
 ```
 Thêm các dòng :
 ```
