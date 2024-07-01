@@ -1,6 +1,6 @@
 ### 1\. Netfilter
 
-Linux Kernel có một package filtering framework là **netfilter**. Cho phép allow, drop, modify các traffic vào ra trên hệ thống.
+Linux Kernel base trên framework là **netfilter**. Cho phép allow, drop, modify các network traffic vào ra trên hệ thống.
 
 ### 2\. Iptable (command) là gì?
 
